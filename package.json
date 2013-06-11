@@ -1,0 +1,25 @@
+{
+  "name": "Simple-Web-Server",
+  "version": "0.0.1",
+  "description": "Node.js demo that servers a file",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kmccanless/Simple-Web-Server.git"
+  },
+  "keywords": [
+    "node.js",
+    "demonstration"
+  ],
+  "author": "Keith McCanless",
+  "license": "BSD",
+  "gitHead": "842021ee536c680d82f14ee3841fb463ccadf8b7",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/kmccanless/Simple-Web-Server/issues"
+  }
+}

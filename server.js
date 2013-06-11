@@ -4,6 +4,7 @@ var app = require('http').createServer(handler)
     , file = process.argv[3];
 
 app.listen(port);
+console.log("Server listening on port %s", port);
 
 function handler (req, res) {
     fs.readFile(file,
@@ -12,7 +13,6 @@ function handler (req, res) {
                 res.writeHead(500);
                 return res.end('Error loading file');
             }
-
             res.writeHead(200);
             res.end(data);
         });
