@@ -1,8 +1,10 @@
 var app = require('http').createServer(handler)
     , fs = require('fs')
-    , port = Number(process.argv[2])
-    , file = process.argv[3];
+    , port 
+    , file ;
 
+port = Number(process.argv[2]) || Number(process.env.PORT);
+file = process.argv[3] || process.env.FILE;
 app.listen(port);
 console.log("Server listening on port %s", port);
 
