@@ -11,10 +11,10 @@ workflows:
           region: ${AWS_DEFAULT_REGION}
           tag: ${CIRCLE_SHA1}
       - aws-ecs/deploy-service-update:
-        requires:
-          - aws-ecr/build_and_push_image
-        aws-region: ${AWS_DEFAULT_REGION}
-        family: "simple-service"
-        service-name: "simple-service-Service-G3XJD7WVXGP1"
-        cluster-name: "simple-cluster"
-        container-image-name-updates: "container=app,tag=${CIRCLE_SHA1}"
+          requires:
+            - aws-ecr/build_and_push_image
+          aws-region: ${AWS_DEFAULT_REGION}
+          family: "simple-service"
+          service-name: "simple-service-Service-G3XJD7WVXGP1"
+          cluster-name: "simple-cluster"
+          container-image-name-updates: "container=app,tag=${CIRCLE_SHA1}"
