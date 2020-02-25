@@ -3,7 +3,7 @@ var http = require('http')
     , greeting;
 
 port = Number(process.env.PORT) || 8080;
-greeting = process.env.MESSAGE || "howdy";
+greeting = process.env.MESSAGE || "hello";
 
 var server = http.createServer(function (req, res) {
     res.writeHead(200, {'Content-Type': 'text/plain'});
