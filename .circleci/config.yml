@@ -16,5 +16,5 @@ workflows:
           aws-region: ${AWS_DEFAULT_REGION}
           family: "simple-service"
           service-name: "simple-service-Service-G3XJD7WVXGP1"
-          cluster-name: "simple-cluster"
+          cluster-name: "simple-cluster-Cluster-4TX598U7QK7O"
           container-image-name-updates: "container=app,tag=${CIRCLE_SHA1}"
