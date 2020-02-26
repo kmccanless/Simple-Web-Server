@@ -1,28 +1,17 @@
-version: 2
 orbs:
   aws-ecr: circleci/aws-ecr@6.7.0
-jobs:
-  build:
-    docker: 
-      - image: circleci/node:4.8.2 
-    steps:
-      - run: echo "hello world" 
-  aws-ecr/build_and_push_image:
-    account-url: "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
-    aws-access-key-id: ${AWS_ACCESS_KEY_ID}
-    aws-secret-access-key: ${AWS_SECRET_ACCESS_KEY}
-    repo: coach-tools-backend
-    create-repo: true
-    region: ${AWS_DEFAULT_REGION}
-    tag: ${CIRCLE_SHA1}
+version: 2.1
 workflows:
-  version: 2
-  build-deploy:
+  build_and_push_image:
     jobs:
-      - build
-      - aws-ecr/build_and_push_image:
-          requires:
-            - build
+    - aws-ecr/build-and-push-image:
+        account-url: AWS_ACCOUNT_URL
+        aws-access-key-id: AWS_ACCESS_KEY_ID
+        aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+        create-repo: true
+        region: AWS_DEFAULT_REGION
+        repo: circleci
+        tag: ${CIRCLE_SHA1}
      
 
 # version: 2.1
