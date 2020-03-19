@@ -3,7 +3,7 @@ var app = require('http').createServer(handler)
     , port 
     , file ;
 
-port = Number(process.argv[2]) || Number(process.env.PORT);
+port = Number(process.argv[2]) || Number(process.env.PORT) || 3000;
 file = process.argv[3] || process.env.FILE;
 app.listen(port);
 console.log("Server listening on port %s", port);
