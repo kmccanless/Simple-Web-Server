@@ -2,7 +2,7 @@ var http = require('http')
     , port
     , greeting;
 
-port = Number(process.env.PORT) || 8080;
+port = Number(process.env.PORT) || 3000;
 greeting = process.env.MESSAGE || "hello you";
 
 var server = http.createServer(function (req, res) {
