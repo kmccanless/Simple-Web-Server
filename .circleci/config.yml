@@ -9,6 +9,7 @@ jobs:
       - run: "sudo apt update -y"
       - run: "curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb"
       - run: "sudo apt install ./keybase_amd64.deb"
+      - run: "run_keybase"
 workflows:
   test_build:
     jobs:
