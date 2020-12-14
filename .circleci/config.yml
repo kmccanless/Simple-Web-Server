@@ -8,7 +8,7 @@ jobs:
     steps:
       - run: sudo apt update -y && curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb && sudo apt install -y ./keybase_amd64.deb
       - run: export KEYBASE_SERVICE=1 && export KEYBASE_USERNAME=kam_machine_acct
-      - run: run_keybase && echo $KEYBASE_PAPERKEY | keybase --devicename=circleci $KEYBASE_USERNAME
+      - run: run_keybase && echo $KEYBASE_PAPER_KEY | keybase login --devicename=circleci $KEYBASE_USERNAME
 workflows:
   test_build:
     jobs:
