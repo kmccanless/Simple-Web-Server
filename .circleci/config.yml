@@ -6,7 +6,9 @@ jobs:
     docker:
       - image: cimg/node:15.4.0
     steps:
-      - run: sudo apt update -y
+      - run: "sudo apt update -y"
+      - run: "curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb"
+      - run: "sudo apt install ./keybase_amd64.deb"
 workflows:
   test_build:
     jobs:
