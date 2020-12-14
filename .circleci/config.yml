@@ -9,8 +9,8 @@ jobs:
       - run: sudo apt update -y && sudo apt install fuse -y && curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb && sudo apt install -y ./keybase_amd64.deb
       - run: export KEYBASE_USERNAME=kam_machine_acct
       - run: run_keybase -gf && echo $KEYBASE_PAPER_KEY | keybase oneshote -u $KEYBASE_USERNAME
-      - run: sleep 5 && kbfsfuse > /dev/null 2>&1 &
-      - run: keybase fs ls /keybase/team
+      - run: kbfsfuse > /dev/null 2>&1 &
+      - run: sleep 10  && keybase fs ls /keybase/team
 workflows:
   test_build:
     jobs:
