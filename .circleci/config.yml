@@ -1,45 +1,27 @@
-orbs:
-  aws-ecr: circleci/aws-ecr@6.7.0
+#orbs:
+#  aws-ecr: circleci/aws-ecr@6.7.0
 version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/node:4.8.2
+      - image: cimg/node:15.4.0
     steps:
       - run: echo "test"
 workflows:
-  build_and_push_image:
+  test_build:
     jobs:
-    - build
-    - aws-ecr/build-and-push-image:
-        requires:
-          - build
-        account-url: AWS_ACCOUNT_URL
-        aws-access-key-id: AWS_ACCESS_KEY_ID
-        aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-        create-repo: true
-        region: AWS_DEFAULT_REGION
-        repo: circleci
-        tag: ${CIRCLE_SHA1}
-     
-
-# version: 2.1
-# orbs:
-#   aws-ecr: circleci/aws-ecr@0.0.2
-#   aws-ecs: circleci/aws-ecs@0.0.8
-# workflows:
-#   build-and-deploy:
-#     jobs:
-#       - aws-ecr/build_and_push_image:
-#           account-url: "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
-#           repo: circleci
-#           region: ${AWS_DEFAULT_REGION}
-#           tag: ${CIRCLE_SHA1}
-#       - aws-ecs/deploy-service-update:
-#           requires:
-#             - aws-ecr/build_and_push_image
-#           aws-region: ${AWS_DEFAULT_REGION}
-#           family: "simple-service"
-#           service-name: "simple-service-Service-1KBUPSYYJ3I8D"
-#           cluster-name: "simple-cluster-Cluster-O1RT4ZD9110D"
-#           container-image-name-updates: "container=app,tag=${CIRCLE_SHA1}"
+      - build
+#workflows:
+#  build_and_push_image:
+#    jobs:
+#    - build
+#    - aws-ecr/build-and-push-image:
+#        requires:
+#          - build
+#        account-url: AWS_ACCOUNT_URL
+#        aws-access-key-id: AWS_ACCESS_KEY_ID
+#        aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+#        create-repo: true
+#        region: AWS_DEFAULT_REGION
+#        repo: circleci
+#        tag: ${CIRCLE_SHA1}
