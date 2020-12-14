@@ -6,10 +6,9 @@ jobs:
     docker:
       - image: cimg/node:15.4.0
     steps:
-      - run: "sudo apt update -y"
-      - run: "curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb"
-      - run: "sudo apt install ./keybase_amd64.deb"
-      - run: "run_keybase"
+      - run: sudo apt update -y && curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb && sudo apt install ./keybase_amd64.deb
+      - run: export KEYBASE_SERVICE=1 && export KEYBASE_USERNAME=kam_machine_acct && export KEYBASE_PAPERKEY=$KEYBASE_PAPER_KEY
+      - run: run_keybase
 workflows:
   test_build:
     jobs:
