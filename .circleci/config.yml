@@ -6,9 +6,11 @@ jobs:
     docker:
       - image: cimg/node:15.4.0
     steps:
-      - run: sudo apt update -y && curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb && sudo apt install -y ./keybase_amd64.deb
-      - run: export KEYBASE_SERVICE=1 && export KEYBASE_USERNAME=kam_machine_acct
-      - run: run_keybase && echo $KEYBASE_PAPER_KEY | keybase login --devicename=circleci $KEYBASE_USERNAME
+      - run: sudo apt update -y && curl fuse --remote-name https://prerelease.keybase.io/keybase_amd64.deb && sudo apt install -y ./keybase_amd64.deb
+      - run: export KEYBASE_USERNAME=kam_machine_acct
+      - run: run_keybase -gf && echo $KEYBASE_PAPER_KEY | keybase oneshote -u $KEYBASE_USERNAME
+      - run: sleep 5 && kbfsfuse > /dev/null 2>&1 &
+      - run: keybase fs ls /keybase/team
 workflows:
   test_build:
     jobs:
