@@ -24,8 +24,8 @@ jobs:
     steps:
       - attach_workspace:
           at: /home/circleci
-      - run: ls /home/circleci
-      - run: ls /home/circleci/project
+      - run: ls -a /home/circleci
+      - run: ls -a /home/circleci/project
 workflows:
   test_build:
     jobs:
