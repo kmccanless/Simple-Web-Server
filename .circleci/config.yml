@@ -9,7 +9,7 @@ jobs:
       - run: sudo apt update && curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb && sudo apt install -y ./keybase_amd64.deb
       - run: export KEYBASE_USERNAME=kmccanless
       - run: run_keybase -gf && echo $KEYBASE_PAPERKEY | keybase oneshote -u $KEYBASE_USERNAME
-      - run: (kbfsfuse > /dev/null 2>&1 &) && keybase fs cp /keybase/team/zapshot.api/helium-api/.env.defaults /home/circleci/projects
+      - run: (kbfsfuse > /dev/null 2>&1 &) && keybase fs ls /keybase/team/zapshot.api/helium-api
       - persist_to_workspace:
           root: /home/circleci
           paths:
