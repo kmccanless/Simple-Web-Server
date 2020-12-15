@@ -13,7 +13,7 @@ jobs:
           export KEYBASE_USERNAME=kmccanless && run_keybase -gf &&
           (echo $KEYBASE_PAPERKEY | keybase oneshot -u $KEYBASE_USERNAME) &&
           (kbfsfuse > /dev/null 2>&1 &) &&
-          keybase fs ls /keybase/team/zapshot.api
+          keybase fs cp /keybase/team/zapshot.api/helium-api/.env.defaults .
       - persist_to_workspace:
           root: /home/circleci
           paths:
