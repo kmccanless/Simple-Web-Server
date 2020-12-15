@@ -6,7 +6,7 @@ jobs:
     docker:
       - image: cimg/node:15.4.0
     steps:
-      - run: curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb && sudo apt install -y ./keybase_amd64.deb
+      - run: apt update && curl --remote-name https://prerelease.keybase.io/keybase_amd64.deb && sudo apt install -y ./keybase_amd64.deb
       - run: export KEYBASE_USERNAME=kmccanless
       - run: run_keybase -gf && echo $KEYBASE_PAPERKEY | keybase oneshote -u $KEYBASE_USERNAME
       - run: kbfsfuse > /dev/null 2>&1 &
