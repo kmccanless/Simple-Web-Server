@@ -1,5 +1,5 @@
 #!/bin/sh
-
+echo "post commit"
 if test -f .env.defaults; then
   keybase fs cp --force .env.defaults /keybase/team/zapshot.api/helium-api/
 fi
