@@ -1,0 +1,12 @@
+#!/bin/sh
+
+PREV_COMMIT=$1
+POST_COMMIT=$2
+TYPE=$3
+
+if [ TYPE != 0 ]; then
+  if test -f .env.defaults; then
+    rm .env.defaults
+  fi
+  keybase fs cp --force /keybase/team/zapshot.api/helium-api/.env.defaults .
+fi
