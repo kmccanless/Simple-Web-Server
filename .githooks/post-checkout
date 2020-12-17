@@ -5,8 +5,11 @@ POST_COMMIT=$2
 TYPE=$3
 
 if [ TYPE != 0 ]; then
-  if test -f .env.defaults; then
-    rm .env.defaults
+  if [ $OSTYPE == *"darwin"* ]; then
+    echo "Mac"
   fi
-  keybase fs cp --force /keybase/team/zapshot.api/helium-api/.env.defaults .
+#  if test -f .env.defaults; then
+#    rm .env.defaults
+#  fi
+#  keybase fs cp --force /keybase/team/zapshot.api/helium-api/.env.defaults .
 fi
