@@ -1,11 +1,20 @@
 #!/bin/sh
+echo $OSTYPE
 
+OS=$OSTYPE
 PREV_COMMIT=$1
 POST_COMMIT=$2
 TYPE=$3
 
+echo $OS
+  if grep -q  "darwin" <<< "$OS"; then
+    echo "Mac"
+  else
+    echo "Not Mac"
+  fi
+
 if [ TYPE != 0 ]; then
-  if [ $OSTYPE == *"darwin"* ]; then
+  if [ OS == "darwin19" ]; then
     echo "Mac"
   fi
 #  if test -f .env.defaults; then
